@@ -1,0 +1,116 @@
+{
+  "results": [
+    {
+      "game": "Azul",
+      "date": "2026-05-18",
+      "results": [
+        { "name": "Maya", "points": 84 },
+        { "name": "Alex", "points": 76 },
+        { "name": "Sam", "points": 61 }
+      ]
+    },
+    {
+      "game": "Wingspan",
+      "date": "2026-06-12",
+      "results": [
+        { "name": "Alex", "points": 97 },
+        { "name": "Jordan", "points": 89 },
+        { "name": "Maya", "points": 81 }
+      ]
+    },
+    {
+      "game": "Catan",
+      "date": "2026-04-19",
+      "results": [
+        { "name": "Casey" },
+        { "name": "Sam" },
+        { "name": "Jordan" },
+        { "name": "Alex" }
+      ]
+    },
+    {
+      "game": "Wingspan",
+      "date": "2026-07-01",
+      "results": [
+        { "name": "Sam", "points": 105 },
+        { "name": "Maya", "points": 91 },
+        { "name": "Jordan", "points": 86 },
+        { "name": "Alex", "points": 80 }
+      ]
+    },
+    {
+      "game": "Azul",
+      "date": "2026-07-13",
+      "results": [
+        { "name": "Jordan", "points": 92 },
+        { "name": "Sam", "points": 78 },
+        { "name": "Alex", "points": 70 }
+      ]
+    },
+    {
+      "game": "Catan",
+      "date": "2026-07-27",
+      "results": [
+        { "name": "Sam" },
+        { "name": "Casey" },
+        { "name": "Maya" }
+      ]
+    },
+    {
+      "game": "Wingspan",
+      "date": "2026-08-05",
+      "results": [
+        { "name": "Maya", "points": 101 },
+        { "name": "Alex", "points": 95 },
+        { "name": "Sam", "points": 87 }
+      ]
+    },
+    {
+      "game": "Catan",
+      "date": "2026-08-15",
+      "results": [
+        { "name": "Jordan" },
+        { "name": "Alex" },
+        { "name": "Casey" },
+        { "name": "Sam" }
+      ]
+    },
+    {
+      "game": "Azul",
+      "date": "2026-08-28",
+      "results": [
+        { "name": "Alex", "points": 88 },
+        { "name": "Maya", "points": 82 },
+        { "name": "Jordan", "points": 74 },
+        { "name": "Sam", "points": 69 }
+      ]
+    },
+    {
+      "game": "Catan",
+      "date": "2026-09-03",
+      "results": [
+        { "name": "Maya" },
+        { "name": "Casey" },
+        { "name": "Jordan" }
+      ]
+    },
+    {
+      "game": "Wingspan",
+      "date": "2026-09-14",
+      "results": [
+        { "name": "Jordan", "points": 112 },
+        { "name": "Sam", "points": 104 },
+        { "name": "Maya", "points": 98 }
+      ]
+    },
+    {
+      "game": "Azul",
+      "date": "2026-09-22",
+      "results": [
+        { "name": "Sam", "points": 96 },
+        { "name": "Alex", "points": 86 },
+        { "name": "Maya", "points": 75 }
+      ]
+    }
+  ]
+}
