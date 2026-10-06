@@ -1,3 +1,14 @@
 {
-  "results": []
+  "results": [
+    {
+      "game": "Catan",
+      "date": "2026-10-05",
+      "results": [
+        { "name": "Vetal", "points": 10 },
+        { "name": "Ksiu", "points": 9 },
+        { "name": "Paha", "points": 8 },
+        { "name": "Nastiks", "points": 6 }
+      ]
+    }
+  ]
 }
