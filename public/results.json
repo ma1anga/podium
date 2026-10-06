@@ -9,6 +9,16 @@
         { "name": "Paha", "points": 8 },
         { "name": "Nastiks", "points": 6 }
       ]
+    },
+    {
+      "game": "Ticket to Ride",
+      "date": "2026-10-05",
+      "results": [
+        { "name": "Paha", "points": 132 },
+        { "name": "Vetal", "points": 122 },
+        { "name": "Nastiks", "points": 108 },
+        { "name": "Ksiu", "points": 86 }
+      ]
     }
   ]
 }
