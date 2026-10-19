@@ -19,6 +19,15 @@
         { "name": "Nastiks", "points": 108 },
         { "name": "Ksiu", "points": 86 }
       ]
+    },
+    {
+      "game": "Catan",
+      "results": [
+        { "name": "Nastiks", "points": 10 },
+        { "name": "Paha", "points": 7 },
+        { "name": "Vetal", "points": 6 },
+        { "name": "Ksiu", "points": 4 }
+      ]
     }
   ]
 }
