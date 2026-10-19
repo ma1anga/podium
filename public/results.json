@@ -22,6 +22,7 @@
     },
     {
       "game": "Catan",
+      "date": "2026-10-15",
       "results": [
         { "name": "Nastiks", "points": 10 },
         { "name": "Paha", "points": 7 },
