@@ -29,6 +29,26 @@
         { "name": "Vetal", "points": 6 },
         { "name": "Ksiu", "points": 4 }
       ]
+    },
+    {
+      "game": "Catan",
+      "date": "2026-11-01",
+      "results": [
+        { "name": "Vetal", "points": 10 },
+        { "name": "Nastiks", "points": 6 },
+        { "name": "Paha", "points": 6 },
+        { "name": "Ksiu", "points": 6 }
+      ]
+    },
+    {
+      "game": "Catan",
+      "date": "2026-11-01",
+      "results": [
+        { "name": "Ksiu", "points": 10 },
+        { "name": "Paha", "points": 7 },
+        { "name": "Vetal", "points": 6 },
+        { "name": "Nastiks", "points": 5 }
+      ]
     }
   ]
 }
