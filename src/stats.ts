@@ -1,4 +1,4 @@
-import { key, type Session } from './data';
+import { key, placesForResults, type Session } from './data';
 
 export interface Standing {
   name: string;
@@ -20,14 +20,15 @@ export const averagePlace = (standing: Standing): number => standing.places / st
 export function standings(sessions: Session[]): Standing[] {
   const players = new Map<string, Standing>();
   for (const session of sessions) {
+    const places = placesForResults(session.results);
     session.results.forEach((result, index) => {
       const id = key(result.name);
       const player = players.get(id) ?? {
         name: result.name, wins: 0, played: 0, places: 0, points: 0, hasPoints: false,
       };
       player.played++;
-      player.places += index + 1;
-      if (index === 0) player.wins++;
+      player.places += places[index];
+      if (places[index] === 1) player.wins++;
       if (result.points !== undefined) {
         player.points += result.points;
         player.hasPoints = true;

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { key, parseData, type Session } from './data';
+  import { key, parseData, placesForResults, type Session } from './data';
   import { averagePlace, games, standings } from './stats';
 
   const sampleMode = import.meta.env.DEV && new URLSearchParams(window.location.search).get('sample') === '1';
@@ -43,6 +43,12 @@
   function ordinal(value: number): string {
     if (value % 100 >= 11 && value % 100 <= 13) return `${value}th`;
     return `${value}${({ 1: 'st', 2: 'nd', 3: 'rd' } as Record<number, string>)[value % 10] ?? 'th'}`;
+  }
+
+  function winnerNames(session: Session): string {
+    const places = placesForResults(session.results);
+    const names = session.results.filter((_, index) => places[index] === 1).map((result) => result.name);
+    return new Intl.ListFormat('en', { style: 'long', type: 'conjunction' }).format(names);
   }
 
   function formatDate(value: string): string {
@@ -166,14 +172,15 @@
     <h2 id="history-title">{selected ? 'History' : 'Recent'}</h2>
     {#if recent.length}
       {#each recent as session (session)}
+        {@const places = placesForResults(session.results)}
         <article class="history-item">
           <p>
-            {session.results[0].name} won {session.game}
+            {winnerNames(session)} won {session.game}
             {#if session.date} · <time datetime={session.date} class="muted">{formatDate(session.date)}</time>{/if}
           </p>
           <p class="muted">
             {#each session.results as result, index (key(result.name))}
-              {index ? ' · ' : ''}{ordinal(index + 1)} {result.name}{result.points === undefined ? '' : ` (${number(result.points)})`}
+              {index ? ' · ' : ''}{ordinal(places[index])} {result.name}{result.points === undefined ? '' : ` (${number(result.points)})`}
             {/each}
           </p>
         </article>

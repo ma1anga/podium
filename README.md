@@ -17,7 +17,7 @@ While running `npm run dev`, use **View sample data** or open `/?sample=1` to tr
 
 ## Add a session
 
-Edit [`public/results.json`](public/results.json) directly. Add each session to the `results` array with players in finishing order, winner first. Names are taken from the sessions, so there is no separate player list to maintain.
+Edit [`public/results.json`](public/results.json) directly. Add each session to the `results` array. When points are provided, players can appear in any order; the site ranks them from highest to lowest score. Names are taken from the sessions, so there is no separate player list to maintain.
 
 ```json
 {
@@ -26,15 +26,15 @@ Edit [`public/results.json`](public/results.json) directly. Add each session to 
       "game": "Azul",
       "date": "2026-10-06",
       "results": [
-        { "name": "Alex", "points": 72 },
-        { "name": "Sam", "points": 65 }
+        { "name": "Sam", "points": 65 },
+        { "name": "Alex", "points": 72 }
       ]
     }
   ]
 }
 ```
 
-The first player in each session wins. `points` and `date` are optional. Dates use `YYYY-MM-DD`. Player and game names match without regard to case. If the JSON or any session is invalid, the page reports the error and shows no results until it is fixed.
+Players with the same score share a place, and all players tied for first get a win. If a session has no points, list its players in finishing order, winner first. Provide points for every player in a session or none of them. `date` is optional and uses `YYYY-MM-DD`. Player and game names match without regard to case. If the JSON or any session is invalid, the page reports the error and shows no results until it is fixed.
 
 ## Build
 

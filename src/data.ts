@@ -11,6 +11,14 @@ export interface Session {
 
 export const key = (value: string): string => value.trim().toLowerCase();
 
+export function placesForResults(results: PlayerResult[]): number[] {
+  let place = 0;
+  return results.map((result, index) => {
+    if (index === 0 || result.points === undefined || result.points !== results[index - 1].points) place++;
+    return place;
+  });
+}
+
 export function parseData(input: unknown): Session[] {
   if (!isObject(input) || !Array.isArray(input.results)) {
     throw new Error('Expected a results array.');
@@ -41,6 +49,12 @@ export function parseData(input: unknown): Session[] {
       seen.add(key(name));
       return result.points === undefined ? { name } : { name, points: result.points };
     });
+
+    const scored = results.filter((result) => result.points !== undefined).length;
+    if (scored > 0 && scored < results.length) {
+      throw new Error(`${label}: provide points for every player or none of them.`);
+    }
+    if (scored) results.sort((a, b) => b.points! - a.points!);
 
     return {
       game: entry.game.trim(),
