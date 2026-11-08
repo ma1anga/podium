@@ -49,6 +49,26 @@
         { "name": "Vetal", "points": 6 },
         { "name": "Nastiks", "points": 5 }
       ]
+    },
+    {
+      "game": "Catan",
+      "date": "2026-11-07",
+      "results": [
+        { "name": "Nastiks", "points": 10 },
+        { "name": "Paha", "points": 3 },
+        { "name": "Vetal", "points": 5 },
+        { "name": "Ksiu", "points": 7 }
+      ]
+    },
+    {
+      "game": "Ticket to Ride",
+      "date": "2026-11-07",
+      "results": [
+        { "name": "Nastiks", "points": 129 },
+        { "name": "Paha", "points": 133 },
+        { "name": "Vetal", "points": 136 },
+        { "name": "Ksiu", "points": 116 }
+      ]
     }
   ]
 }
