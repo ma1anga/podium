@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import type { ReactNode } from 'react'
 import './globals.css'
 
@@ -11,10 +12,11 @@ export const viewport: Viewport = { width: 'device-width', initialScale: 1 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" data-theme="dark">
+    <html lang="en">
       <body>
         {children}
-        <script
+        <Script
+          strategy="afterInteractive"
           type="module"
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "d1c99ba8e91841648dd12833f977739a"}'

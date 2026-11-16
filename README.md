@@ -29,10 +29,12 @@ While running `npm run dev`, use **View sample data** or open
 - `src/features/leaderboard/` contains the leaderboard screen and its CSS module. Its `components/`
   render complete UI sections, `hooks/` loads results, and `lib/` holds data validation, statistics,
   and formatting.
-- `src/components/theme/` contains the theme switch, its preference state, and its CSS module.
+- `src/components/theme/` contains the theme switch and its CSS module.
 
-Theme preferences initialize in a React effect. The initial page is dark; after mounting, the saved
-theme or system preference is applied.
+CSS follows the
+[browser's color preference](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme),
+with dark as the default. The switch overrides it for the current page; reloading uses the browser
+preference again. Theme choices are not saved.
 
 ## Formatting
 

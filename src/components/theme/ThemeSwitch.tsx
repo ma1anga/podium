@@ -1,44 +1,19 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import styles from './ThemeSwitch.module.css'
 
+function toggleTheme(): void {
+  const root = document.documentElement
+  root.dataset.theme = getComputedStyle(root).colorScheme === 'dark' ? 'light' : 'dark'
+}
+
 export default function ThemeSwitch() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark')
-
-  useEffect(() => {
-    let initialTheme: 'light' | 'dark' = window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light'
-    try {
-      const savedTheme = localStorage.getItem('podium-theme')
-      if (savedTheme === 'light' || savedTheme === 'dark') initialTheme = savedTheme
-    } catch {
-      // Keep the system preference when browser storage is unavailable.
-    }
-    document.documentElement.dataset.theme = initialTheme
-    setTheme(initialTheme)
-  }, [])
-
-  function toggleTheme(): void {
-    const nextTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(nextTheme)
-    document.documentElement.dataset.theme = nextTheme
-    try {
-      localStorage.setItem('podium-theme', nextTheme)
-    } catch {
-      // The switch still works when browser storage is unavailable.
-    }
-  }
-
   return (
     <button
       className={styles.switch}
       type="button"
-      role="switch"
-      aria-label="Dark theme"
-      aria-checked={theme === 'dark'}
-      title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+      aria-label="Toggle color theme"
+      title="Toggle color theme"
       onClick={toggleTheme}
     >
       <span className={styles.thumb} aria-hidden="true" />
