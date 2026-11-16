@@ -53,6 +53,23 @@ in `.prettierignore`.
 In VS Code, install the recommended **Prettier - Code formatter** extension. Workspace settings
 enable formatting on save using the project's installed Prettier version and configuration.
 
+## Git hooks
+
+[Husky](https://typicode.github.io/husky/get-started.html) installs the project's Git hooks through
+the `prepare` script when you run `npm install` or `npm ci`. For an existing checkout, run
+`npm run prepare` once after installing dependencies to enable the hooks.
+
+Before each commit, [`.husky/pre-commit`](.husky/pre-commit) runs `npm run lint` followed by
+`npm run format:check`. Both commands check the entire working tree, including unstaged edits,
+without modifying files. If either check fails, fix the reported issues, review and stage any
+changes, and retry the commit. Use `npm run lint:fix` and `npm run format` to apply automatic fixes.
+
+To run the same checks without creating a commit:
+
+```sh
+sh .husky/pre-commit
+```
+
 ## Add a session
 
 Edit [`public/results.json`](public/results.json) directly. Add each session to the `results` array.
