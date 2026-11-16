@@ -1,0 +1,51 @@
+.switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+  width: 56px;
+  height: 30px;
+  padding: 0 6px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: var(--switch-background);
+  color: var(--foreground);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.thumb {
+  position: absolute;
+  inset: 3px auto 3px 3px;
+  width: 22px;
+  border-radius: 50%;
+  background: var(--switch-thumb);
+  box-shadow: 0 1px 3px #0002;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+:global(:root[data-theme="dark"]) .thumb {
+  transform: translateX(26px);
+}
+
+.icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.moon {
+  stroke-linejoin: round;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .switch,
+  .thumb {
+    transition: none;
+  }
+}

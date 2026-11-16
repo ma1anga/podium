@@ -1,19 +1,27 @@
 # Podium
 
-A static Svelte and TypeScript leaderboard for board game sessions. Results live in a JSON file; the site calculates wins, games played, win rate, average finish, points, per-game standings, and recent history in the browser.
+A static Next.js and TypeScript leaderboard for board game sessions. Results live in a JSON file; the site calculates wins, games played, win rate, average finish, points, per-game standings, and recent history in the browser. Install dependencies and start the development server below, then edit `public/results.json` to publish your sessions.
 
 ## Run locally
 
-Requires Node.js 20.19+ or 22.12+.
+Requires Node.js 20.19 or newer. Use an active Node.js LTS release.
 
 ```sh
 npm install
 npm run dev
 ```
 
-Open the URL printed by Vite to view the leaderboard.
+Open <http://localhost:3000/podium/> to view the leaderboard. The `/podium/` base path applies in both development and production.
 
-While running `npm run dev`, use **View sample data** or open `/?sample=1` to try the sessions in [`fixtures/results.sample.json`](fixtures/results.sample.json). The built site always reads `public/results.json` and does not include the sample file or link.
+While running `npm run dev`, use **View sample data** or open <http://localhost:3000/podium/?sample=1> to try the sessions in [`fixtures/results.sample.json`](fixtures/results.sample.json). The built site always fetches `public/results.json` at runtime and does not include the sample file or link.
+
+## Source layout
+
+- `src/app/` contains Next.js routes, the root layout, and global theme variables, resets, and typography.
+- `src/features/leaderboard/` contains the leaderboard screen and its CSS module. Its `components/` render complete UI sections, `hooks/` loads results, and `lib/` holds data validation, statistics, and formatting.
+- `src/components/theme/` contains the theme switch, its preference state, and its CSS module.
+
+Theme preferences initialize in a React effect. The initial page is dark; after mounting, the saved theme or system preference is applied.
 
 ## Add a session
 
@@ -43,4 +51,6 @@ npm run build
 npm run preview
 ```
 
-Vite writes a static site to `dist/`. Serve the contents of that folder over HTTP, including at a project path such as GitHub Pages. The preview command serves the build locally. Opening `dist/index.html` with `file://` may also work in some browsers, but local module and JSON access varies by browser and settings.
+Next.js exports the static site to `dist/`; no application server is needed in production. The preview command serves it at <http://localhost:4173/podium/> and redirects `/` there. Use `npm run preview -- --port 4174 --host 0.0.0.0` to change the port or listen on other interfaces.
+
+Deploy the contents of `dist/` under `/podium/` over HTTP. The existing GitHub Pages workflow builds and deploys that folder without changes. `public/results.json` is copied to `dist/results.json` and fetched from `/podium/results.json` when the page loads, so replacing that deployed file updates the results without rebuilding the application.
