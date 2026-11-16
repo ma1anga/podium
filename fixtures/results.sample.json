@@ -21,12 +21,7 @@
     {
       "game": "Catan",
       "date": "2026-04-19",
-      "results": [
-        { "name": "Casey" },
-        { "name": "Sam" },
-        { "name": "Jordan" },
-        { "name": "Alex" }
-      ]
+      "results": [{ "name": "Casey" }, { "name": "Sam" }, { "name": "Jordan" }, { "name": "Alex" }]
     },
     {
       "game": "Wingspan",
@@ -50,11 +45,7 @@
     {
       "game": "Catan",
       "date": "2026-07-27",
-      "results": [
-        { "name": "Sam" },
-        { "name": "Casey" },
-        { "name": "Maya" }
-      ]
+      "results": [{ "name": "Sam" }, { "name": "Casey" }, { "name": "Maya" }]
     },
     {
       "game": "Wingspan",
@@ -68,12 +59,7 @@
     {
       "game": "Catan",
       "date": "2026-08-15",
-      "results": [
-        { "name": "Jordan" },
-        { "name": "Alex" },
-        { "name": "Casey" },
-        { "name": "Sam" }
-      ]
+      "results": [{ "name": "Jordan" }, { "name": "Alex" }, { "name": "Casey" }, { "name": "Sam" }]
     },
     {
       "game": "Azul",
@@ -88,11 +74,7 @@
     {
       "game": "Catan",
       "date": "2026-09-03",
-      "results": [
-        { "name": "Maya" },
-        { "name": "Casey" },
-        { "name": "Jordan" }
-      ]
+      "results": [{ "name": "Maya" }, { "name": "Casey" }, { "name": "Jordan" }]
     },
     {
       "game": "Wingspan",

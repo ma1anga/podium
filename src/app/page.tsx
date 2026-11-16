@@ -1,5 +1,5 @@
-import Leaderboard from '../features/leaderboard/Leaderboard';
+import Leaderboard from '../features/leaderboard/Leaderboard'
 
 export default function Page() {
-  return <Leaderboard />;
+  return <Leaderboard />
 }

@@ -1,15 +1,15 @@
-import styles from '../Leaderboard.module.css';
-import { key } from '../lib/data';
-import type { GameStats } from '../lib/stats';
+import styles from '../Leaderboard.module.css'
+import { key } from '../lib/data'
+import type { GameStats } from '../lib/stats'
 
 interface GameFiltersProps {
-  games: GameStats[];
-  selectedGame: string | null;
-  onSelect: (game: string | null) => void;
+  games: GameStats[]
+  selectedGame: string | null
+  onSelect: (game: string | null) => void
 }
 
 export default function GameFilters({ games, selectedGame, onSelect }: GameFiltersProps) {
-  if (!games.length) return null;
+  if (!games.length) return null
 
   return (
     <nav className={styles.filters} aria-label="Filter by game">
@@ -33,5 +33,5 @@ export default function GameFilters({ games, selectedGame, onSelect }: GameFilte
         </button>
       ))}
     </nav>
-  );
+  )
 }

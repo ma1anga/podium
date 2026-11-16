@@ -11,7 +11,9 @@
   border-radius: 99px;
   background: var(--switch-background);
   color: var(--foreground);
-  transition: background-color 180ms ease, border-color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
 }
 
 .thumb {
@@ -21,10 +23,12 @@
   border-radius: 50%;
   background: var(--switch-thumb);
   box-shadow: 0 1px 3px #0002;
-  transition: transform 180ms ease, background-color 180ms ease;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
 }
 
-:global(:root[data-theme="dark"]) .thumb {
+:global(:root[data-theme='dark']) .thumb {
   transform: translateX(26px);
 }
 

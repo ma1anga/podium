@@ -1,11 +1,11 @@
-import styles from '../Leaderboard.module.css';
-import { key } from '../lib/data';
-import { formatNumber } from '../lib/format';
-import { averagePlace, type Standing } from '../lib/stats';
+import styles from '../Leaderboard.module.css'
+import { key } from '../lib/data'
+import { formatNumber } from '../lib/format'
+import { averagePlace, type Standing } from '../lib/stats'
 
 interface StandingsTableProps {
-  players: Standing[];
-  title: string;
+  players: Standing[]
+  title: string
 }
 
 export default function StandingsTable({ players, title }: StandingsTableProps) {
@@ -18,8 +18,12 @@ export default function StandingsTable({ players, title }: StandingsTableProps) 
             <caption className={styles.visuallyHidden}>Player standings</caption>
             <thead>
               <tr>
-                <th scope="col" className={styles.rank}>Rank</th>
-                <th scope="col" className={styles.name}>Player</th>
+                <th scope="col" className={styles.rank}>
+                  Rank
+                </th>
+                <th scope="col" className={styles.name}>
+                  Player
+                </th>
                 <th scope="col">Wins</th>
                 <th scope="col">Played</th>
                 <th scope="col">Win %</th>
@@ -33,14 +37,16 @@ export default function StandingsTable({ players, title }: StandingsTableProps) 
                   <td className={styles.name}>{player.name}</td>
                   <td>{player.wins}</td>
                   <td>{player.played}</td>
-                  <td>{`${Math.round(player.wins / player.played * 100)}%`}</td>
+                  <td>{`${Math.round((player.wins / player.played) * 100)}%`}</td>
                   <td>{formatNumber(averagePlace(player))}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-        ) : <p className={styles.muted}>No results yet.</p>}
+        ) : (
+          <p className={styles.muted}>No results yet.</p>
+        )}
       </div>
     </section>
-  );
+  )
 }
