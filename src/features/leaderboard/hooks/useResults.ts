@@ -38,10 +38,14 @@ export function useResults() {
             cache: 'no-store',
             signal: controller.signal,
           })
-          if (!response.ok) throw new Error(`HTTP ${response.status}`)
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`)
+          }
           data = (await response.json()) as unknown
         }
-        if (!controller.signal.aborted) sessions = parseData(data)
+        if (!controller.signal.aborted) {
+          sessions = parseData(data)
+        }
       } catch (cause) {
         error =
           cause instanceof SyntaxError

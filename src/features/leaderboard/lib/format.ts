@@ -3,7 +3,9 @@ export function formatNumber(value: number): string {
 }
 
 export function ordinal(value: number): string {
-  if (value % 100 >= 11 && value % 100 <= 13) return `${value}th`
+  if (value % 100 >= 11 && value % 100 <= 13) {
+    return `${value}th`
+  }
   return `${value}${({ 1: 'st', 2: 'nd', 3: 'rd' } as Record<number, string>)[value % 10] ?? 'th'}`
 }
 

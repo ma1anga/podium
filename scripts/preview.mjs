@@ -11,9 +11,13 @@ let host = 'localhost'
 
 for (let i = 2; i < process.argv.length; i += 1) {
   const argument = process.argv[i]
-  if (argument === '--port') port = Number(process.argv[++i])
-  else if (argument === '--host') host = process.argv[++i]
-  else throw new Error(`Unknown argument: ${argument}`)
+  if (argument === '--port') {
+    port = Number(process.argv[++i])
+  } else if (argument === '--host') {
+    host = process.argv[++i]
+  } else {
+    throw new Error(`Unknown argument: ${argument}`)
+  }
 }
 
 if (!Number.isInteger(port) || port < 1 || port > 65535 || !host) {
@@ -100,15 +104,19 @@ const server = createServer(async (request, response) => {
       'Content-Type': mimeTypes[extname(file)] ?? 'application/octet-stream',
       'Content-Length': info.size,
     })
-    if (request.method === 'HEAD') response.end()
-    else
+    if (request.method === 'HEAD') {
+      response.end()
+    } else {
       createReadStream(file)
         .on('error', () => response.destroy())
         .pipe(response)
+    }
   } catch (error) {
-    if (error instanceof URIError) reply(400, 'Invalid path')
-    else if (error.code === 'ENOENT' || error.code === 'ENOTDIR') reply(404, 'Not found')
-    else {
+    if (error instanceof URIError) {
+      reply(400, 'Invalid path')
+    } else if (error.code === 'ENOENT' || error.code === 'ENOTDIR') {
+      reply(404, 'Not found')
+    } else {
       console.error(error)
       reply(500, 'Server error')
     }

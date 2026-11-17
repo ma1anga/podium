@@ -14,8 +14,9 @@ export const key = (value: string): string => value.trim().toLowerCase()
 export function placesForResults(results: PlayerResult[]): number[] {
   let place = 0
   return results.map((result, index) => {
-    if (index === 0 || result.points === undefined || result.points !== results[index - 1].points)
+    if (index === 0 || result.points === undefined || result.points !== results[index - 1].points) {
       place++
+    }
     return place
   })
 }
@@ -43,7 +44,9 @@ export function parseData(input: unknown): Session[] {
         throw new Error(`${label}: every player needs a name.`)
       }
       const name = result.name.trim()
-      if (seen.has(key(name))) throw new Error(`${label}: ${name} appears more than once.`)
+      if (seen.has(key(name))) {
+        throw new Error(`${label}: ${name} appears more than once.`)
+      }
       if (
         result.points !== undefined &&
         (typeof result.points !== 'number' || !Number.isFinite(result.points))
@@ -58,7 +61,9 @@ export function parseData(input: unknown): Session[] {
     if (scored > 0 && scored < results.length) {
       throw new Error(`${label}: provide points for every player or none of them.`)
     }
-    if (scored) results.sort((a, b) => b.points! - a.points!)
+    if (scored) {
+      results.sort((a, b) => b.points! - a.points!)
+    }
 
     return {
       game: entry.game.trim(),
@@ -69,7 +74,9 @@ export function parseData(input: unknown): Session[] {
 }
 
 function validDate(value: string): boolean {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    return false
+  }
   const date = new Date(`${value}T00:00:00Z`)
   return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value
 }

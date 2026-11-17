@@ -33,7 +33,9 @@ export function standings(sessions: Session[]): Standing[] {
       }
       player.played++
       player.places += places[index]
-      if (places[index] === 1) player.wins++
+      if (places[index] === 1) {
+        player.wins++
+      }
       if (result.points !== undefined) {
         player.points += result.points
         player.hasPoints = true

@@ -9,7 +9,9 @@ interface GameFiltersProps {
 }
 
 export default function GameFilters({ games, selectedGame, onSelect }: GameFiltersProps) {
-  if (!games.length) return null
+  if (!games.length) {
+    return null
+  }
 
   return (
     <nav className={styles.filters} aria-label="Filter by game">

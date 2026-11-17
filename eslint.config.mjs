@@ -7,5 +7,10 @@ export default defineConfig([
   ...nextVitals,
   ...nextTs,
   prettier,
+  {
+    rules: {
+      curly: ['error', 'all'],
+    },
+  },
   globalIgnores(['.next/**', 'dist/**', 'out/**', 'build/**', 'next-env.d.ts']),
 ])
