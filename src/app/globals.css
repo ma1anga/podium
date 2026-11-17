@@ -8,23 +8,27 @@
   --switch-background: light-dark(#e9e9e3, #383834);
   --switch-thumb: light-dark(#fff, #565650);
   --switch-offset: 26px;
+  --brand-icon-invert: 1;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: light;
     --switch-offset: 0px;
+    --brand-icon-invert: 0;
   }
 }
 
 :root[data-theme='light'] {
   color-scheme: light;
   --switch-offset: 0px;
+  --brand-icon-invert: 0;
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
   --switch-offset: 26px;
+  --brand-icon-invert: 1;
 }
 
 * {

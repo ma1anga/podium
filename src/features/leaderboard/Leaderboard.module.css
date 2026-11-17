@@ -11,6 +11,19 @@
   gap: 16px;
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandIcon {
+  flex: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  filter: invert(var(--brand-icon-invert));
+}
+
 .subtitle {
   margin-top: 4px;
 }

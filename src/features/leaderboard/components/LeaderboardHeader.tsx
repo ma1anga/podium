@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import podiumIcon from '../../../../assets/podium.png'
 import ThemeSwitch from '../../../components/theme/ThemeSwitch'
 import styles from '../Leaderboard.module.css'
 
@@ -15,7 +17,17 @@ export default function LeaderboardHeader({
   return (
     <header>
       <div className={styles.headerTop}>
-        <h1>Podium</h1>
+        <h1 className={styles.brand}>
+          <Image
+            src={podiumIcon}
+            alt=""
+            width={36}
+            height={36}
+            className={styles.brandIcon}
+            unoptimized
+          />
+          Podium
+        </h1>
         <ThemeSwitch />
       </div>
       <p className={`${styles.muted} ${styles.subtitle}`} aria-live="polite">
