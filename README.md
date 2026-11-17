@@ -22,6 +22,11 @@ While running `npm run dev`, use **View sample data** or open
 [`fixtures/results.sample.json`](fixtures/results.sample.json). The built site always fetches
 `public/results.json` at runtime and does not include the sample file or link.
 
+Selecting a game saves the filter in the URL, for example `/podium/?game=azul`. Copy the URL to
+share that game's standings; opening or refreshing it restores the selection. **All** removes the
+game parameter, and the browser's Back and Forward buttons restore previous selections. Game names
+match without regard to case, and an unknown game shows the overall leaderboard.
+
 ## Source layout
 
 - `src/app/` contains Next.js routes, the root layout, and global theme variables, resets, and

@@ -1,3 +1,4 @@
+import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { parseData, type Session } from '../lib/data'
 
@@ -6,25 +7,21 @@ interface ResultsState {
   loading: boolean
   error: string
   sampleMode: boolean
-  toggleUrl: string
 }
 
 export function useResults() {
+  const searchParams = useSearchParams()
   const [results, setResults] = useState<ResultsState>({
     sessions: [],
     loading: true,
     error: '',
     sampleMode: false,
-    toggleUrl: '?sample=1',
   })
 
   useEffect(() => {
     const sample =
       process.env.NODE_ENV === 'development' &&
       new URLSearchParams(window.location.search).get('sample') === '1'
-    const url = new URL(window.location.href)
-    if (sample) url.searchParams.delete('sample')
-    else url.searchParams.set('sample', '1')
     const controller = new AbortController()
 
     async function load(): Promise<void> {
@@ -57,7 +54,6 @@ export function useResults() {
           loading: false,
           error,
           sampleMode: sample,
-          toggleUrl: url.toString(),
         })
       }
     }
@@ -66,5 +62,12 @@ export function useResults() {
     return () => controller.abort()
   }, [])
 
-  return results
+  const toggleParams = new URLSearchParams(searchParams.toString())
+  if (results.sampleMode) {
+    toggleParams.delete('sample')
+  } else {
+    toggleParams.set('sample', '1')
+  }
+
+  return { ...results, toggleUrl: `?${toggleParams.toString()}` }
 }

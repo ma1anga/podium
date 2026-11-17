@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import GameBreakdown from './components/GameBreakdown'
 import GameFilters from './components/GameFilters'
 import LeaderboardHeader from './components/LeaderboardHeader'
@@ -13,10 +13,12 @@ import styles from './Leaderboard.module.css'
 
 export default function Leaderboard() {
   const { sessions, loading, error, sampleMode, toggleUrl } = useResults()
-  const [selectedGame, setSelectedGame] = useState<string | null>(null)
+  const searchParams = useSearchParams()
 
   const allGames = games(sessions)
-  const selected = allGames.find((game) => key(game.name) === selectedGame)
+  const requestedGame = key(searchParams.get('game') ?? '')
+  const selected = allGames.find((game) => key(game.name) === requestedGame)
+  const selectedGame = selected ? key(selected.name) : null
   const visible = selected
     ? sessions.filter((session) => key(session.game) === selectedGame)
     : sessions
@@ -34,10 +36,26 @@ export default function Leaderboard() {
         ? 'Could not load results.'
         : `${sampleMode ? 'Sample data · ' : ''}Who wins, who loses, who has bragging rights.`
 
+  function selectGame(game: string | null) {
+    const url = new URL(window.location.href)
+    if (game === null) {
+      url.searchParams.delete('game')
+    } else {
+      url.searchParams.set('game', game)
+    }
+
+    if (url.href === window.location.href) {
+      return
+    }
+    // Native history syncs Next.js hooks without reloading the static page or its results.
+    // https://nextjs.org/docs/app/getting-started/linking-and-navigating#native-history-api
+    window.history.pushState(null, '', url)
+  }
+
   return (
     <main className={styles.leaderboard}>
       <LeaderboardHeader status={status} sampleMode={sampleMode} toggleUrl={toggleUrl} />
-      <GameFilters games={allGames} selectedGame={selectedGame} onSelect={setSelectedGame} />
+      <GameFilters games={allGames} selectedGame={selectedGame} onSelect={selectGame} />
       {error && (
         <p className={styles.message} role="alert">
           {error}
