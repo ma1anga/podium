@@ -12,5 +12,5 @@ export default defineConfig([
       curly: ['error', 'all'],
     },
   },
-  globalIgnores(['.next/**', 'dist/**', 'out/**', 'build/**', 'next-env.d.ts']),
+  globalIgnores(['.next/**', 'dist/**', 'out/**', 'build/**', 'coverage/**', 'next-env.d.ts']),
 ])
