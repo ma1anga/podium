@@ -1,6 +1,6 @@
 import styles from '../Leaderboard.module.css'
 import { key } from '../lib/data'
-import type { GameStats } from '../lib/stats'
+import type { GameStats } from '../lib/stats';
 
 interface GameFiltersProps {
   games: GameStats[]
