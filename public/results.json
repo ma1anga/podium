@@ -109,6 +109,26 @@
         { "name": "Vetal", "points": 100 },
         { "name": "Ksiu", "points": 90 }
       ]
+    },
+    {
+      "game": "Catan",
+      "date": "2026-11-21",
+      "results": [
+        { "name": "Nastiks", "points": 6 },
+        { "name": "Paha", "points": 3 },
+        { "name": "Vetal", "points": 10 },
+        { "name": "Ksiu", "points": 3 }
+      ]
+    },
+    {
+      "game": "Carcassonne",
+      "date": "2026-11-21",
+      "results": [
+        { "name": "Nastiks", "points": 67 },
+        { "name": "Paha", "points": 66 },
+        { "name": "Vetal", "points": 88 },
+        { "name": "Ksiu", "points": 64 }
+      ]
     }
   ]
 }
